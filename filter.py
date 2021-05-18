@@ -6,12 +6,15 @@ def filter(filename):
 			if int(lines[2]) >=85:
 				print(lines[0], lines[3])
 
-
+		print('----------')
 		subprocess.run("awk -F, '$3>=85 {print $1 $4}' log.txt", shell=True)
+		print('----------')
+
 		os.system("awk -F, '$3>=85 {print $1 , $4}' log.txt")
+		print('----------')
 
 		# subprocess.run("ls -z 2>&1 | tee error_log.txt", shell=True)
-		
+
 		cmd= subprocess.run('this-command-does-not-exist', capture_output=True,shell=True)
 		fw.write(cmd.stderr.decode('utf-8'))
 filter('log.txt')
